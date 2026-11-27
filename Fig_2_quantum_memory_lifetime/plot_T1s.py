@@ -27,22 +27,6 @@ def doube_exponential_decay(x, amp, alpha0, tau, ofs, n):
         nbars = alphas**2
         return ofs + amp * nbars**n / 1 * np.exp(-nbars)
 
-# def cohstate_decay(y, x, fn = doube_exponential_decay):
-#     """ """
-#     def params(y, x):
-#         """ """
-#         mul = 1 if (x[-1] > x[0]) else -1
-#         amp = mul * (y[-1] - y[0])
-#         if amp < 0:
-#             ofs = np.max(y)
-#         else:
-#             ofs = np.min(y)
-#         tau = x[-1] / 5
-#         return create_params(n=0, amp=amp, ofs=ofs, alpha0=1.0, tau=tau)
-
-#     result = Model(fn).fit(y, params(y, x), x=x)
-#     return result.best_fit, result.best_values
-
 def my_cohstate_decay_with_errors(x_values, y_means, y_sems=None, fn=doube_exponential_decay):
     """ """
     def params(y, x):
@@ -64,12 +48,11 @@ def my_cohstate_decay_with_errors(x_values, y_means, y_sems=None, fn=doube_expon
 
 # Import data
 path = "/Users/dorogov/env/Valadares-Dorogov-FAR/Fig_2_quantum_memory_lifetime/Cavity_T1s/"
-colours = np.array(["#bc343a", "#f19f3c", "#88b742", "#3E9491", "#7c1954"])
 detunings_data = {"232": ["21-43-40_QubitSpec.hdf5", "#bc343a"],
-                  "150": ["00-09-47_QubitSpec.hdf5", "#f19f3c"],
                   "116": ["17-49-57_QubitSpec.hdf5", "#f19f3c"],
                   "90": ["10-42-53_QubitSpec.hdf5", "#88b742"],
                   "63": ["08-34-52_QubitSpec.hdf5", "#3E9491"]}
+# Choose the detuning here
 detuning_to_plot = "116"
 filename, plot_colour = detunings_data[detuning_to_plot]
 with h5py.File(path+filename, "r") as hdf:
@@ -109,5 +92,5 @@ ax.set(xlim=[-0.05, 4.07])
 ax.tick_params(axis='x', labelbottom=False)
 ax.tick_params(axis='y', labelleft=False)
 plt.show()
-# fig.savefig("Figures/Cavity_T1_257us_with_it.pdf", bbox_inches="tight", transparent=True)
+# fig.savefig("Cavity_T1_.pdf", bbox_inches="tight", transparent=True)
 
