@@ -1,0 +1,67 @@
+{
+    "creators": [
+        {
+            "name": "Dorogov, Aleksandr",
+            "orcid": "0000-0003-2708-6409",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+        {
+            "name": "Valadares, Fernando",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+        {
+            "name": "Krisnanda, Tanjung",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+        {
+            "name": "Loke, May Chee",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+        {
+            "name": "Huang, Ni-Ni",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+        {
+            "name": "Calero Mas, Héctor",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+        {
+            "name": "Jin, Seungwon",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+        {
+            "name": "Song, Pengtao",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+        {
+            "name": "Gao, Yvonne Y.",
+            "affiliation": "Centre for Quantum Technologies, National University of Singapore",
+            "type": "Researcher"
+        },
+      
+    ],
+    "title": "Flux-Activated Resonant Control of a Bosonic Quantum Memory",
+    "version": "1.0.0",
+    "access_right": "open",
+    "related_identifiers": [
+        {
+            "resource_type": "publication-article"
+        }
+    ],
+    "keywords": [
+        "quantum information",
+        "bosonic circuit quantum electrodynamics",
+        "resonant control"
+    ],
+    "license": "mit",
+    "upload_type": "data",
+    "language": "eng",
+}
