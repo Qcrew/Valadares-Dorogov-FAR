@@ -32,8 +32,8 @@ def build_Hamiltonian(omega_c: float, alpha: float, g: float):
 H_0 = build_Hamiltonian(omega_c=omega_c, alpha=alpha, g=g)
 eigenvalues, eigenvecs = H_0.eigenstates()
 E_list = eigenvalues / 2 / np.pi # Eigenenergies of the composite system
-T1 = 10_000 # lower bar
-T2 = 1_300
+# T1 = 10_000 # lower bar
+# T2 = 1_300
 # T1 = 15_000 # higher bar
 # T2 = 2_800
 # T2 = 2_100
@@ -41,9 +41,9 @@ T2 = 1_300
 # T2 = 3_800
 # T1 = 4_000
 # T2 = 3870.6
-Tphi = 1 / (1 / T2 - 0.5 / T1)
-# T1 = 100_000 # Good coherence
-# Tphi = 50_000
+# Tphi = 1 / (1 / T2 - 0.5 / T1)
+T1 = 100_000 # Good coherence
+Tphi = 50_000
 # ECD
 # T1 = 50_000
 # Tphi = 30_000
@@ -52,7 +52,9 @@ c_T1 = np.sqrt(1/T1) * b
 c_Tphi = np.sqrt(2.0 / Tphi) * b.dag() * b
 c_cavT1 = np.sqrt(1/cavT1) * a
 c_ops = [c_T1, c_Tphi, c_cavT1]
-c_ops = [] # check with no decoherence
+# print("Including decoherence: T1 = {:.1f} us, T2 = {:.1f} us, T1 cav = {:.0f} us".format(T1/1000, T2/1000, cavT1/1000))
+# print("No decoherence simulation")
+# c_ops = [] # check with no decoherence
 if tdim == 4:
     resonant_states = np.array([eigenvecs[0], eigenvecs [1], eigenvecs[2], eigenvecs[4], eigenvecs[5], eigenvecs[8], eigenvecs[9], eigenvecs[12], eigenvecs[13]])
 elif tdim == 2:
@@ -146,8 +148,10 @@ H_td = [H_0,
         [Hd2, Hcoeff3_conj], ]
 
 psi0 = qutip.tensor(qutip.basis(N_c, 0), qutip.basis(tdim, 0))
-tlist = np.linspace(0.0, t_max, 1_001)
-# tlist = np.linspace(0.0, t_max+200, 1_301) # with adiabatic detuning
+# print("No adiabatic detuning")
+# tlist = np.linspace(0.0, t_max, 1_001)
+print("With adiabatic detuning")
+tlist = np.linspace(0.0, t_max+200, 1_301) # with adiabatic detuning
 print("The state preparation time is {:.2f} ns\n".format(t_max))
 result = qutip.mesolve(H_td, psi0, tlist, c_ops, 
                     options = qutip.Options(store_states=True, nsteps=10_000))

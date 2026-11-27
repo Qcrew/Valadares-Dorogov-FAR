@@ -78,6 +78,7 @@ def make_the_plot(filename: str):
         cmap="bwr",
         vmax=1,
         vmin=-1,
+        rasterized=True # NOTE new
     )
     plt.title(
         f"Max = {np.max(parity_corrected_1):.3f}, min = {np.min(parity_corrected_1):.3f}"
@@ -134,4 +135,4 @@ ax.plot(x_, cut_data, color=colour_1D_Wigner, marker="o", markeredgewidth=0.25,
 ax.set(xlim=[-2.46, 2.46], ylim=[-1.15, 1.15])
 ax.tick_params(axis='x', labelbottom=False)
 ax.tick_params(axis='y', labelleft=False)
-fig.savefig("Figures/Wigner_cut_0+j2+4_new_.pdf", bbox_inches="tight", transparent=True)
+# fig.savefig("Figures/Wigner_cut_0+j2+4_new_.pdf", bbox_inches="tight", transparent=True)
